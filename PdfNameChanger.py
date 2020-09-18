@@ -1,7 +1,7 @@
 import glob,os
 from pdfminer.pdfparser import PDFParser
 from pdfminer.pdfdocument import PDFDocument
-
+import traceback
 files = glob.glob(".//*.pdf")
 for file in files:
     try:
@@ -14,4 +14,5 @@ for file in files:
         os.rename(file, title + ".pdf")
     except:
         print(file)
+        traceback.print_exc()
     print()
